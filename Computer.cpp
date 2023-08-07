@@ -2,8 +2,8 @@
 
 Computer::Computer() : name("Computer") {}
 
-char Computer::makeMove() {
-    return 'R';
+Move * Computer::makeMove() {
+    return new Rock();
 }
 
 std::string Computer::getName(){
