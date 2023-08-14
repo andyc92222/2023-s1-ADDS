@@ -26,7 +26,7 @@ int Reverser::pow10(int number){
 
 string Reverser::reverseString(string characters){
     if (characters.empty()) {
-        return "";
+        return "ERROR";
     }
 
     char lastChar = characters.back();
