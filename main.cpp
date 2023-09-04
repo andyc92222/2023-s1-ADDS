@@ -1,18 +1,39 @@
 #include <iostream>
-
+#include <vector>
+#include <sstream>
 #include "QuickSort.h"
-using namespace std;
+#include "RecursiveBinarySearch.h"
 
 int main() {
-    vector<int> arr = {1, 3, 5, 4, -5, 100, 7777, 2014};
-    QuickSort a ;
+    std::string inputLine;
+    std::getline(std::cin, inputLine);
+    std::stringstream ss(inputLine);
 
-    arr = a.sort(arr);
+    int num;
+    std::vector<int> inputList;
+    
 
-    for (int num : arr) {
-        cout << num << " ";
+    while (ss >> num) {
+        inputList.push_back(num);
     }
-    cout << endl;
+
+
+    QuickSort quickSort;
+    std::vector<int> sortedList = quickSort.sort(inputList);
+
+    RecursiveBinarySearch binarySearch;
+    bool result = binarySearch.search(sortedList, 1);
+
+    std::cout << (result ? "true" : "false") << " ";
+
+    for (int i = 0; i < sortedList.size(); ++i) {
+        std::cout << sortedList[i];
+        if (i < sortedList.size() - 1) {
+            std::cout << " ";
+        }
+    }
+    
+    std::cout << std::endl;
 
     return 0;
 }

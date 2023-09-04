@@ -15,28 +15,22 @@ void QuickSort::quickSort(std::vector<int>& list, int low, int high) {
 }
 
 int QuickSort::partition(std::vector<int>& list, int low, int high) {
-    int pivot;
 
-    if (list.size() >= 3) {
-        pivot = list[low + 2];
-    } else {
-        pivot = list[high];
-    }
+    int middle = low + (high - low) / 2;
+    int pivot = list[middle];
+
+    std::swap(list[middle], list[high]);
 
     int i = low - 1;
 
     for (int j = low; j < high; j++) {
-        if (list[j] < pivot) {
+        if (list[j] <= pivot) {
             i++;
             std::swap(list[i], list[j]);
         }
     }
 
-    if (list.size() >= 3) {
-        std::swap(list[i + 1], list[low + 2]);
-    } else {
-        std::swap(list[i + 1], list[high]);
-    }
+    std::swap(list[i + 1], list[high]);
     
     return i + 1;
 }
