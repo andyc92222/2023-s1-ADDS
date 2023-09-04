@@ -1,5 +1,4 @@
 #include "QuickSort.h"
-#include <stack>
 
 std::vector<int> QuickSort::sort(std::vector<int> list) {
     quickSort(list, 0, list.size() - 1);

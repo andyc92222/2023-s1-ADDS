@@ -5,21 +5,20 @@
 #include "RecursiveBinarySearch.h"
 
 int main() {
-    std::string inputLine;
-    std::getline(std::cin, inputLine);
-    std::stringstream ss(inputLine);
+    std::string input1;
+    std::getline(std::cin, input1);
+    std::stringstream list(input1);
 
     int num;
-    std::vector<int> inputList;
+    std::vector<int> input2;
     
 
-    while (ss >> num) {
-        inputList.push_back(num);
+    while (list >> num) {
+        input2.push_back(num);
     }
 
-
     QuickSort quickSort;
-    std::vector<int> sortedList = quickSort.sort(inputList);
+    std::vector<int> sortedList = quickSort.sort(input2);
 
     RecursiveBinarySearch binarySearch;
     bool result = binarySearch.search(sortedList, 1);
