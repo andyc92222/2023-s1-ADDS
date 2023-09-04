@@ -1,10 +1,11 @@
 #include <iostream>
-#include"BubbleSort.h"
+
+#include "QuickSort.h"
 using namespace std;
 
 int main() {
     vector<int> arr = {1, 3, 5, 4, -5, 100, 7777, 2014};
-    BubbleSort a ;
+    QuickSort a ;
 
     arr = a.sort(arr);
 
