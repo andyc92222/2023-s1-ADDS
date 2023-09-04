@@ -3,9 +3,8 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {64, 25, 12, 22, 11};
+    vector<int> arr = {1, 3, 5, 4, -5, 100, 7777, 2014};
     BubbleSort a ;
-    cout << "Original array: ";
     for (int num : arr) {
         cout << num << " ";
     }
@@ -13,7 +12,6 @@ int main() {
 
     arr = a.sort(arr);
 
-    cout << "Sorted array: ";
     for (int num : arr) {
         cout << num << " ";
     }
