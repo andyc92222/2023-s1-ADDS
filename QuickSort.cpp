@@ -6,31 +6,31 @@ std::vector<int> QuickSort::sort(std::vector<int> list) {
     return list;
 }
 
-void QuickSort::quickSort(std::vector<int>& list, int low, int high) {
-    if (low < high) {
-        int pivotIndex = partition(list, low, high);
-        quickSort(list, low, pivotIndex - 1);
-        quickSort(list, pivotIndex + 1, high);
+void QuickSort::quickSort(std::vector<int>& list, int left, int right) {
+    if (left < right) {
+        int pivotIndex = partition(list, left, right);
+        quickSort(list, left, pivotIndex - 1);
+        quickSort(list, pivotIndex + 1, right);
     }
 }
 
-int QuickSort::partition(std::vector<int>& list, int low, int high) {
+int QuickSort::partition(std::vector<int>& list, int left, int right) {
 
-    int middle = low + (high - low) / 2;
+    int middle = left + (right - left) / 2;
     int pivot = list[middle];
 
-    std::swap(list[middle], list[high]);
+    std::swap(list[middle], list[right]);
 
-    int i = low - 1;
+    int i = left - 1;
 
-    for (int j = low; j < high; j++) {
+    for (int j = left; j < right; j++) {
         if (list[j] <= pivot) {
             i++;
             std::swap(list[i], list[j]);
         }
     }
 
-    std::swap(list[i + 1], list[high]);
+    std::swap(list[i + 1], list[right]);
     
     return i + 1;
 }
