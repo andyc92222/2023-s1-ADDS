@@ -80,7 +80,7 @@ std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
             carry /= 10;
         }
 
-        for (int i = 0; i < result.size(); i++) {
+        for (std::size_t i = 0; i < result.size(); i++) {
             partialResult.push_front(0);
         }
 
