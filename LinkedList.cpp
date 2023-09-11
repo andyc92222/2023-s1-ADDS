@@ -23,7 +23,7 @@ LinkedList::~LinkedList() {
 }
 
 void LinkedList::insertPosition(int pos, int newNum) {
-    if (pos <= 0) pos = 1; // Ensure non-negative position
+    if (pos <= 0) pos = 1;
     Node* newNode = new Node(newNum);
 
     if (pos == 1) {
@@ -39,7 +39,6 @@ void LinkedList::insertPosition(int pos, int newNum) {
             newNode->setLink(current->getLink());
             current->setLink(newNode);
         } else {
-            // Insert at the end if position exceeds list size
             Node* temp = head;
             while (temp->getLink() != nullptr) {
                 temp = temp->getLink();
@@ -116,4 +115,9 @@ void LinkedList::printList() {
         }
     }
     std::cout << "]";
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
