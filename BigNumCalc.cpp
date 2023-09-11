@@ -78,28 +78,18 @@ std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
     std::list<int> result;
     int carry = 0;
 
-    for (int digit2 : num2) {
-        std::list<int> partialResult; 
-
-        for (int digit1 : num1) {
-            int product = digit1 * digit2 + carry;
-            partialResult.push_back(product % 10);
-            carry = product / 10;
+    while (!num1.empty()|| carry){
+        int product = 0;
+        if (!num1.empty()){
+        product = num1.back()*num2.back();
+        num1.pop_back();
         }
-
-        while (carry > 0) {
-            partialResult.push_back(carry % 10);
-            carry /= 10;
-        }
-
-        for (std::size_t i = 0; i < result.size(); i++) {
-            partialResult.push_front(0);
-        }
-
-        result = add(result, partialResult);
+        int num = product+carry;
+        result.push_front(num%10);
+        carry = num/10;
+        
     }
-
-    while (!result.empty() && result.front() == 0) {
+    if (result.front() == 0){
         result.pop_front();
     }
 
