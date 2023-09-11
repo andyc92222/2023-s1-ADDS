@@ -117,7 +117,3 @@ void LinkedList::printList() {
     std::cout << "]";
 }
 
-int main() {
-    // Your code here
-    return 0;
-}
