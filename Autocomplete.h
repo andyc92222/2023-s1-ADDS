@@ -16,4 +16,4 @@ private:
     void findWords(TrieNode* node, std::string currentWord, std::vector<std::string>& suggestions);
 };
 
-#endif // AUTOCOMPLETE_H
+#endif 

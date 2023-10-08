@@ -1,6 +1,6 @@
 #include "Autocomplete.h"
 
-// TrieNode Struct Definition
+
 struct Autocomplete::TrieNode {
     TrieNode* children[26];
     bool isEndOfWord;
@@ -13,7 +13,7 @@ struct Autocomplete::TrieNode {
     }
 };
 
-// Autocomplete Class Implementation
+
 Autocomplete::Autocomplete() {
     root = new TrieNode();
 }
