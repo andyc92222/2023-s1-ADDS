@@ -56,23 +56,18 @@ Heap<T>::Heap(std::vector<T> start_values) {
 
 template <typename T>
 void Heap<T>::insert(T value) {
-    // Add the new element to the end of the vector.
     values.push_back(value);
 
-    // Find the index of the newly added element.
     int index = values.size() - 1;
 
-    // Heapify the newly added element to maintain the heap property.
     while (index > 0) {
         int parent_index = (index - 1) / 2;
         if (values[index] < values[parent_index]) {
-            // Swap the current element with its parent.
             T temp = values[index];
             values[index] = values[parent_index];
             values[parent_index] = temp;
             index = parent_index;
         } else {
-            // The element is in the correct position in the heap.
             break;
         }
     }
@@ -84,20 +79,16 @@ void Heap<T>::insert(T value) {
 
 template <typename T>
 void Heap<T>::remove(T value) {
-    // Find the index of the value to remove.
     auto it = std::find(values.begin(), values.end(), value);
     if (it == values.end()) {
-        // Value not found in the heap.
         return;
     }
 
     int index = std::distance(values.begin(), it);
 
-    // Replace the element to be removed with the last element.
     values[index] = values.back();
     values.pop_back();
 
-    // Heapify the element to maintain the heap property.
     heapify(index);
 }
 
@@ -110,7 +101,7 @@ T Heap<T>::getMin() {
     if (values.empty()) {
         throw std::out_of_range("Heap is empty");
     }
-    return values[0]; // The root of the heap contains the smallest element.
+    return values[0];
 }
 
 /*******************************/
